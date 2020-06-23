@@ -1,0 +1,29 @@
+<mat-accordion *ngIf="items?.length">
+  <mat-expansion-panel *ngFor="let item of items; let i = index">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <s *ngIf="item.status != 'STATUS_TODO'">{{i + 1}}. Task</s>
+        <span *ngIf="item.status == 'STATUS_TODO'">{{i + 1}}. Task</span>
+      </mat-panel-title>
+      <mat-panel-description>
+        <s *ngIf="item.status != 'STATUS_TODO'">{{item.name}}</s>
+        <span *ngIf="item.status == 'STATUS_TODO'">{{item.name}}</span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p>
+      {{item.description}}
+    </p>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div>
+        <button mat-raised-button color="primary" (click)="changeItemStatus(item)">
+          {{item.status == "STATUS_TODO" ? "Done" : "Undone"}}
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button color="accent" (click)="editItem(item.id)">Edit</button>
+        <button mat-raised-button color="warn" class="ml-5" (click)="deleteItem(item.id)">Delete</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

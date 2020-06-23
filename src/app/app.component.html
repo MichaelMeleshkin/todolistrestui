@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="expanded-toolbar" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    <button mat-button routerLink="/">{{title}}</button>
+    <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
+  </span>
+  <div fxLayout="row">
+    <div *ngIf="!auth.isAuthenticated()">
+      <button mat-button routerLink="/signin">
+        <mat-icon>login</mat-icon>
+        SignIn
+      </button>
+      <button mat-button routerLink="/signup">
+        <mat-icon>assignment</mat-icon>
+        SignUp
+      </button>
+    </div>
+    <button mat-button *ngIf="auth.isAuthenticated()" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

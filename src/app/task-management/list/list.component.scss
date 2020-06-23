@@ -1,0 +1,16 @@
+.ml-5 {
+    margin-left: 5px;
+}
+
+mat-panel-title {
+    flex-grow: 0;
+    white-space: nowrap;
+}
+
+mat-panel-description,
+mat-panel-description .ng-star-inserted {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
